@@ -1,0 +1,2 @@
+rofi.modi:                           run,calc
+rofi.theme: /usr/share/rofi/themes/sidebar-dracula.rasi
