@@ -8,10 +8,10 @@ super + Return
 
 # Rofi
 super + @space
-	rofi -show run
+	rofi -show run -font "SauceCodePro Nerd Font 13"
 
 super + c
-	rofi -show calc
+	rofi -show calc -font "SauceCodePro Nerd Font 13"
 
 # make sxhkd reload its configuration files:
 super + Escape
