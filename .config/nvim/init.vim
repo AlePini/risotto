@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
+    Plug 'scrooloose/nerdtree'
 
 " Autocompletition
     Plug 'ncm2/ncm2'
@@ -72,6 +73,9 @@ call plug#end()
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
+
+" Open NerdTree
+    map <leader>n :NERDTreeToggle<CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
