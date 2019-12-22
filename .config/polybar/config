@@ -144,20 +144,15 @@ type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>
 label-connected = %essid%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected = <label-disconnected> 
+;format-disconnected-underline = ${self.format-connecteid-underline}
+label-disconnected = "睊"
+label-disconnected-foreground = ${colors.background-m-alt}
 
-ramp-signal-0 = " "
-ramp-signal-1 = " "
-ramp-signal-2 = " "
-ramp-signal-3 = " "
-ramp-signal-4 = " "
+ramp-signal-0 = "直"
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
