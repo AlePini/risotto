@@ -93,7 +93,7 @@ font-4 = mplus Nerd Font:style=Medium:size=7;3
 [bar/top-primary]
 inherit = bar/base
 
-modules-left = volume right-end-top 
+modules-left = player volume right-end-top 
 modules-right = left-end-top wlan eth right-end-bottom left-end-top date right-end-bottom left-end-top
 
 tray-background = ${color.module-bg}
@@ -103,7 +103,7 @@ tray-position = right
 
 [bar/top-secondary]
 inherit = bar/top-primary
-modules-left = volume right-end-top
+modules-left = player volume right-end-top
 modules-right = left-end-top date
 tray-position =
 
@@ -207,8 +207,8 @@ label-mode-padding = ${layout.module-padding}
 type = internal/xwindow
 inherit = generic-format-style
 
-label = %title:0:35:...%
-label-empty = pini@IBM5100
+label = %title:0:20:...%
+label-empty = "pini %{T2}卵%{T-} IBM5100"
 
 ;
 ; |__| _  _ _|    _  _ _
@@ -222,7 +222,7 @@ inherit = generic-format-style
 format = <label> <bar-load>
 format-prefix = 漣
 
-label = %percentage:2% ％
+label = %percentage:2%  
 
 ; Bar
 bar-load-format = ${layout.bar-format}
@@ -355,7 +355,7 @@ format-connected-prefix = 直
 label-connected = %essid%
 
 format-disconnected-prefix = 睊
-label-disconnected = オフ
+label-disconnected = off-line
 
 
 [module/eth]
@@ -391,8 +391,8 @@ interval = 1
 
 ; Date format is "MM 月 DD 日", with a smaller font size used for
 ; the spaces to achieve a tighter spacing using a monospaced font.
-date = %m%{T5} %{T-}%{F#404040}月%{F-}%{T5} %{T-}%d%{T5} %{T-}%{F#404040}日%{F-}
-date-alt = %V%{T5} %{T-}%{F#404040}週%{F-}
+date = %m%{T5} %{T-}%{F#6272a4}月%{F-}%{T5} %{T-}%d%{T5} %{T-}%{F#6272a4}日%{F-}
+date-alt = %V%{T5} %{T-}%{F#6272a4}週%{F-}
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -405,17 +405,17 @@ label = %date%  %time%
 ; |  |(/_(_||(_|
 ;
 
-[module/now-playing]
+[module/player]
 type = custom/script
 inherit = generic-format-style
 
-exec = $HOME/.config/polybar/modules/now_playing.py
+exec = ~/.config/polybar/modules/player.sh
+interval = 3
 tail = true
 
-click-left = playerctl next
-click-middle = playerctl play-pause
-click-right = playerctl previous
-
+click-left = playerctl previous &
+click-right = playerctl next &
+click-middle = playerctl play-pause &
 
 [module/volume]
 type = internal/alsa
@@ -450,7 +450,7 @@ format-muted-prefix-font = ${layout.icon-font}
 format-muted-prefix-foreground = ${color.icon-fg}
 format-muted-prefix-padding-right = ${layout.icon-padding}
 
-label-muted = ミュート
+label-muted = shut up
 
 
 ;  __
@@ -486,7 +486,7 @@ ramp-capacity-8 = 
 ramp-capacity-9 = 
 ramp-capacity-10 = 
 
-label-discharging = %percentage% ％
+label-discharging = %percentage% 
 
 ; Charging
 format-charging = <animation-charging><label-charging>
