@@ -15,14 +15,14 @@ xsetroot -cursor_name left_ptr
 # ==============
 
 screenlayout &    # Restore Layout For Multiple Screens
+optimus-manager-qt &
 nitrogen --restore &            # Restore wallpapers
-picom -b & 
-# cmst -m -w 5 &                # Network Manager
-# nm-applet
+picom -b &                      # Compositor 
 dunst &                         # Notifcation Manager
 # tlp start                     # Battery Saving
 # powertop --auto-tune
-udiskie -n -a -t &            # Automount device
+pkill udiskie;
+udiskie -n -a -t &              # Automount device
 sxhkd &                         # Keyboard shortcuts
 
 # Autostart CKB Manager if any "Corsair Device" is connected
