@@ -10,7 +10,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 # Setup Workspaces
-i=0
+i=1
 n=`bspc query -M | wc -l`  # count number of lines in bspwm's monitor list
 per=$(( 10 / n ))          # number of desktops per monitor
 for monitor in `bspc query -M`; do
@@ -20,10 +20,12 @@ for monitor in `bspc query -M`; do
 done
 
 # Polybar eDP1 & HDMI1
-pkill polybar
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload main &
-done
+# pkill polybar
+# for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+#     MONITOR=$m polybar --reload main &
+# done
+$HOME/.config/polybar/launch_polybar
+
 
 # ==============
 # Other programs
