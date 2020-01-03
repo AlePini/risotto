@@ -12,22 +12,18 @@ bspc config gapless_monocle      true
 # Setup Workspaces
 i=1
 n=`bspc query -M | wc -l`  # count number of lines in bspwm's monitor list
-per=$(( 10 / n ))          # number of desktops per monitor
+per=5          # number of desktops per monitor
 for monitor in `bspc query -M`; do
     bspc monitor $monitor -d `seq $i $(( i + per - 1 ))` 
     # seq is end-inclusive; `seq 1 $((1+2))` returns "1 2 3"
     i=$(( i + per ))
 done
 
-# Polybar eDP1 & HDMI1
-# pkill polybar
-# for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-#     MONITOR=$m polybar --reload main &
-# done
-$HOME/.config/polybar/launch_polybar
-
-
 # ==============
 # Other programs
 # ==============
+
+# Polybar Setup
+$HOME/.config/polybar/launch_polybar
+
 pextra &
