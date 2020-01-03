@@ -1,277 +1,560 @@
-;==========================================================
+;  ___     _      _
+; | _ \___| |_  _| |__  __ _ _ _
+; |  _/ _ \ | || | '_ \/ _` | '_|
+; |_| \___/_|\_, |_.__/\__,_|_|
+;            |__/
 ;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;==========================================================
+; Author: Benedikt Vollmerhaus
+; License: MIT
 
-[colors]
-background = #282a36
-            ;${xrdb:color0:#222}
-background-alt = ${xrdb:color8:#222}
-foreground = #f8f8f2
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color8:#4585ac}
-secondary = ${xrdb:color5:#c08650}
-alert = #ff5555
+;  __
+; /   _ |  _  _ _
+; \__(_)|_(_)| _)
+;
 
-# Modules
-background-m = ${xrdb:color8:#222}
-background-m-alt = ${xrdb:color5:#222}
+[xcolor]
+bg     = ${xrdb:color0:#0a0a0a}
+fg     = ${xrdb:color7:#c8c8c8}
+color1 = ${xrdb:color1:#a54242}
+color2 = ${xrdb:color2:#8c9440}
+color3 = ${xrdb:color3:#de935f}
+color4 = ${xrdb:color4:#5f819d}
+color5 = ${xrdb:color5:#85678f}
+color6 = ${xrdb:color6:#5e8d87}
+color8 = ${xrdb:color8:#373b41}
 
-[bar/main]
-monitor = ${env:MONITOR:eDP-1}
-width = 88%
-height = 30
-offset-x = 6%
-offset-y = 1.3%
-;radius = 4.0
+
+[color]
+base-bg     = #0021222c
+glyph-bg    = #282a36
+module-bg   = #282a36
+selected-bg = #44475a
+
+text-fg = #f8f8f2
+icon-fg = ${xcolor.color5}
+bar-fg  = ${xcolor.color3}
+
+red     = #ff79c6
+orange  = #ff79c6
+
+
+;
+; |  _    _    _|_
+; |_(_|\/(_)|_| |
+;      /
+
+[layout]
+icon-font = 2
+
+icon-padding = 1
+module-padding = 2
+
+bar-format = %{T4}%fill%%indicator%%{F#dc404040}%empty%%{F-}%{T-}
+bar-fill-icon = ﭳ
+
+
+;  __            __
+; |__) _  _ _   |__) _  _
+; |__)(_|_)(/_  |__)(_||
+;
+
+[bar/base]
+monitor = ${env:MONITOR}
+width = 100%
+height = 28
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${color.base-bg}
+foreground = ${color.text-fg}
 
-line-size = 3
-line-color = #f00
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Anonymice Nerd Font:pixelsize=10;1"
-font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-2 = siji:pixelsize=10;1
-
-modules-left = bspwm
-modules-center = date
-modules-right = pulseaudio memory cpu battery temperature wlan eth powermenu
-
-tray-position = right
-tray-padding = 2
-;tray-background = #0063ff
-
-wm-restack = bspwm
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+; Size of under-/overlines
+line-size = 1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+font-0 = Anonymice Nerd Font:style=Medium:size=10;3
+; Material Design Icons
+font-1 = mplus Nerd Font:style=Medium:size=11;3
+; Powerline Glyphs
+font-2 = mplus Nerd Font:style=Medium:size=16;3
+
+; Larger font size for bar fill icons
+font-3 = mplus Nerd Font:style=Medium:size=12;3
+; Smaller font size for shorter spaces
+font-4 = mplus Nerd Font:style=Medium:size=7;3
+
+
+; ___        __
+;  | _  _   |__) _  _
+;  |(_)|_)  |__)(_||
+;      |
+
+[bar/top-primary]
+inherit = bar/base
+
+modules-left = volume right-end-top 
+modules-right = left-end-top wlan eth right-end-bottom left-end-top date right-end-bottom left-end-top
+
+tray-background = ${color.module-bg}
+tray-padding = ${layout.module-padding}
+tray-position = right
+
+
+[bar/top-secondary]
+inherit = bar/top-primary
+modules-left = volume right-end-top
+modules-right = left-end-top date
+tray-position =
+
+
+;  __                     __
+; |__) _ _|__|_ _  _ _   |__) _  _
+; |__)(_) |  | (_)| | |  |__)(_||
+;
+
+[bar/bottom-primary]
+inherit = bar/base
+bottom = true
+
+modules-left = bspwm right-end-bottom left-end-top xwindow right-end-bottom
+modules-right = left-end-bottom cpu memory right-end-top left-end-bottom temp battery
+
+
+[bar/bottom-secondary]
+inherit = bar/bottom-primary
+
+
+; A generic format for any modules that support it. Unfortunately, this
+; doesn't apply to all modules since some use different names for their
+; format and prefix definitions, such as format-NAME or ramp-NAME, which
+; don't fall back to the unnamed ones and have to be declared explicitly.
+[generic-format-style]
+format-background = ${color.module-bg}
+format-padding = ${layout.module-padding}
+
+format-prefix-font = ${layout.icon-font}
+format-prefix-foreground = ${color.icon-fg}
+format-prefix-padding-right = ${layout.icon-padding}
+
+
+;  __                          __
+; |  \ _  _ _  _ _ _|_.   _   / _ |    _ |_  _
+; |__/(/_(_(_)| (_| | |\/(/_  \__)|_\/|_)| |_)
+;                                   / |
+
+[module/decor-glyph]
+type = custom/text
+content-background = ${color.base-bg}
+content-foreground = ${color.glyph-bg}
+
+[module/left-end-top]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/right-end-top]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/left-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/right-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+
+;   __
+; .  _)
+; | __)
+;
 
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
-label-focused-background = ${colors.background-m-alt}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-background = ${colors.background-m}
-label-occupied-underline = ${colors.background-m-alt}
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.background-m}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
+; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-[module/xbacklight]
-type = internal/xbacklight
+; Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${color.selected-bg}
+label-focused-underline = ${xcolor.color5}
+label-focused-padding = ${layout.module-padding}
 
-format = <label> <bar>
-label = Light
+; Inactive workspace on any monitor
+label-empty= ${self.label-focused}
+label-empty-background = ${color.module-bg}
+label-empty-padding = ${layout.module-padding}
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+; Active workspace on unfocused monitor
+label-occupied = ${self.label-focused}
+label-occupied-background = ${color.module-bg}
+label-occupied-underline = ${xcolor.color5}
+label-occupied-padding = ${layout.module-padding}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+; Workspace with urgency hint set
+label-urgent = ${self.label-focused}
+label-urgent-background = ${color.module-bg}
+label-urgent-underline = ${color.red}
+label-urgent-padding = ${layout.module-padding}
+
+label-mode-background = ${color.module-bg}
+label-mode-padding = ${layout.module-padding}
+
+
+[module/xwindow]
+type = internal/xwindow
+inherit = generic-format-style
+
+label = %title:0:35:...%
+label-empty = pini@IBM5100
+
+;
+; |__| _  _ _|    _  _ _
+; |  |(_|| (_|\|/(_|| (/_
+;
 
 [module/cpu]
 type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage%%
+inherit = generic-format-style
+
+format = <label> <bar-load>
+format-prefix = 漣
+
+label = %percentage:2% ％
+
+; Bar
+bar-load-format = ${layout.bar-format}
+
+bar-load-foreground-0 = ${color.bar-fg}
+bar-load-foreground-1 = ${color.bar-fg}
+bar-load-foreground-2 = ${color.orange}
+bar-load-foreground-3 = ${color.red}
+bar-load-gradient = true
+
+bar-load-width = 5
+bar-load-fill = ${layout.bar-fill-icon}
+bar-load-indicator =
+bar-load-empty = ${layout.bar-fill-icon}
+
 
 [module/memory]
 type = internal/memory
+inherit = generic-format-style
+
+format-prefix = ﬘
+label = %gb_used%
+
+
+[module/temp]
+type = internal/temperature
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage_used%%
+
+units = false
+warn-temperature = 80
+
+; Normal
+format-background = ${color.module-bg}
+format-padding = ${layout.module-padding}
+
+format-prefix = 﨎
+format-prefix-font = ${layout.icon-font}
+format-prefix-foreground = ${color.icon-fg}
+format-prefix-padding-right = ${layout.icon-padding}
+
+label = %temperature-c% °C
+
+; Warning
+format-warn-background = ${color.module-bg}
+format-warn-underline = ${color.red}
+format-warn-padding = ${layout.module-padding}
+
+format-warn-prefix = 﨏
+format-warn-prefix-font = ${layout.icon-font}
+format-warn-prefix-foreground = ${color.icon-fg}
+format-warn-prefix-padding-right = ${layout.icon-padding}
+
+label-warn = ${self.label}
+label-warn-foreground = ${color.red}
+
+
+[module/xkeyboard]
+type = internal/xkeyboard
+inherit = generic-format-style
+blacklist-0 = num lock
+
+format-prefix = 
+
+label-indicator-underline = ${xcolor.color1}
+label-indicator-padding = 1
+label-indicator-margin = 1
+
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+
+; Mounted
+format-mounted-background = ${color.module-bg}
+format-mounted-padding = ${layout.module-padding}
+
+format-mounted-prefix = 
+format-mounted-prefix-font = ${layout.icon-font}
+format-mounted-prefix-foreground = ${color.icon-fg}
+format-mounted-prefix-padding-right = ${layout.icon-padding}
+
+label-mounted = %used% / %total%
+
+; Unmounted
+format-unmounted-background = ${color.module-bg}
+format-unmounted-padding = ${layout.module-padding}
+
+format-unmounted-prefix = 
+format-unmounted-prefix-font = ${layout.icon-font}
+format-unmounted-prefix-foreground = ${color.icon-fg}
+format-unmounted-prefix-padding-right = ${layout.icon-padding}
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${xcolor.color1}
+
+
+;
+; |\ | _ _|_    _  _|
+; | \|(/_ | \|/(_)| |<
+;
+
+[module/network]
+type = internal/network
+interval = 2
+
+; Connected
+format-connected-background = ${color.module-bg}
+format-connected-padding = ${layout.module-padding}
+
+format-connected-prefix-font = ${layout.icon-font}
+format-connected-prefix-foreground = ${color.icon-fg}
+format-connected-prefix-padding-right = ${layout.icon-padding}
+
+; Disconnected
+format-disconnected-background = ${color.module-bg}
+format-disconnected-foreground = ${xcolor.color3}
+format-disconnected-padding = ${layout.module-padding}
+
+format-disconnected-prefix-font = ${layout.icon-font}
+format-disconnected-prefix-foreground = ${color.icon-fg}
+format-disconnected-prefix-padding-right = ${layout.icon-padding}
+
 
 [module/wlan]
-type = internal/network
-interface = wlo1
-interval = 3.0
+inherit = module/network
+interface = ${env:IFACE_WLAN}
 
-format-connected = <ramp-signal>
+format-connected-prefix = 直
 label-connected = %essid%
 
-format-disconnected = <label-disconnected> 
-;format-disconnected-underline = ${self.format-connecteid-underline}
-label-disconnected = "睊"
-label-disconnected-foreground = ${colors.background-m-alt}
+format-disconnected-prefix = 睊
+label-disconnected = オフ
 
-ramp-signal-0 = "直"
-ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
-type = internal/network
-interface = eno1
-interval = 3.0
+inherit = module/network
+interface = ${env:IFACE_ETH}
 
-format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix = 
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+
+
+[module/ping]
+type = custom/script
+inherit = generic-format-style
+
+exec = $HOME/.config/polybar/modules/measure_ping.py
+tail = true
+click-left = kill -USR1 %pid%
+
+format-prefix = 
+
+
+; ___
+;  | . _ _  _
+;  | || | |(/_
+;
 
 [module/date]
 type = internal/date
+inherit = generic-format-style
 interval = 1
 
-date-alt = " %d-%m"
-date = " %Y-%m-%d"
+; Date format is "MM 月 DD 日", with a smaller font size used for
+; the spaces to achieve a tighter spacing using a monospaced font.
+date = %m%{T5} %{T-}%{F#404040}月%{F-}%{T5} %{T-}%d%{T5} %{T-}%{F#404040}日%{F-}
+date-alt = %V%{T5} %{T-}%{F#404040}週%{F-}
 
-time-alt = %H:%M
-time = %H:%M:%S
+time = %H:%M
+time-alt = %H:%M:%S
 
-label =「%date% %time% 」
+label = %date%  %time%
 
-[module/pulseaudio]
-type = internal/pulseaudio
 
-format-volume = <bar-volume>
+;
+; |\/| _  _|. _
+; |  |(/_(_||(_|
+;
 
-label-muted = 🔇 muted
-label-muted-foreground = #666
+[module/now-playing]
+type = custom/script
+inherit = generic-format-style
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+exec = $HOME/.config/polybar/modules/now_playing.py
+tail = true
+
+click-left = playerctl next
+click-middle = playerctl play-pause
+click-right = playerctl previous
+
+
+[module/volume]
+type = internal/alsa
+
+; Not muted
+format-volume = <ramp-volume><bar-volume>
+format-volume-background = ${color.module-bg}
+format-volume-padding = ${layout.module-padding}
+
+ramp-volume-font = ${layout.icon-font}
+ramp-volume-foreground = ${color.icon-fg}
+ramp-volume-padding-right = ${layout.icon-padding}
+
+ramp-volume-0 = 墳
+
+; Bar
+bar-volume-format = ${layout.bar-format}
+bar-volume-foreground-0 = ${color.bar-fg}
+
+bar-volume-width = 6
+bar-volume-fill = ${layout.bar-fill-icon}
+bar-volume-indicator =
+bar-volume-empty = ${layout.bar-fill-icon}
+
+; Muted
+format-muted-background = ${color.module-bg}
+format-muted-foreground = ${xcolor.color3}
+format-muted-padding = ${layout.module-padding}
+
+format-muted-prefix = 婢
+format-muted-prefix-font = ${layout.icon-font}
+format-muted-prefix-foreground = ${color.icon-fg}
+format-muted-prefix-padding-right = ${layout.icon-padding}
+
+label-muted = ミュート
+
+
+;  __
+; |__)_     _  _
+; |  (_)\|/(/_|
+;
 
 [module/battery]
 type = internal/battery
+
 battery = BAT0
-adapter = ADP1
-full-at = 99
+adapter = AC
+full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+; Discharging
+format-discharging = <ramp-capacity><label-discharging>
+format-discharging-background = ${color.module-bg}
+format-discharging-padding = ${layout.module-padding}
 
-format-discharging = <ramp-capacity> <label-discharging>
+ramp-capacity-font = ${layout.icon-font}
+ramp-capacity-foreground = ${color.icon-fg}
+ramp-capacity-padding-right = ${layout.icon-padding}
 
-format-full-prefix = "  "
-ramp-capacity-0 = " "
-ramp-capacity-1 = " "
-ramp-capacity-2 = " "
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
-animation-charging-foreground = ${colors.foreground-alt}
+label-discharging = %percentage% ％
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+; Charging
+format-charging = <animation-charging><label-charging>
+format-charging-background = ${color.module-bg}
+format-charging-padding = ${layout.module-padding}
 
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
+animation-charging-font = ${layout.icon-font}
+animation-charging-foreground = ${color.icon-fg}
+animation-charging-padding-right = ${layout.icon-padding}
 
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+animation-charging-framerate = 1000
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
 
-ramp-0 = ""
-ramp-1 = ""
-ramp-2 = ""
-ramp-foreground = ${colors.foreground-alt}
+label-charging = ${self.label-discharging}
 
-[module/powermenu]
-type = custom/menu
+; Full
+format-full-background = ${color.module-bg}
+format-full-padding = ${layout.module-padding}
 
-expand-right = false
+format-full-prefix = 
+format-full-prefix-font = ${layout.icon-font}
+format-full-prefix-foreground = ${color.icon-fg}
+format-full-prefix-padding-right = ${layout.icon-padding}
 
-format-spacing = 1
+label-full = ${self.label-discharging}
 
-label-open = 襤
-label-open-foreground = ${colors.secondary}
-label-close ="- cancel"
-label-close-foreground = ${colors.secondary}
-label-separator = " |"
-label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = Shutdown 
-menu-0-0-exec = /home/pini/.local/bin/onrofi
+[module/wattage]
+inherit = module/battery
+
+; Discharging
+format-discharging = <label-discharging>
+
+format-discharging-prefix = 
+format-discharging-prefix-font = ${layout.icon-font}
+format-discharging-prefix-foreground = ${color.icon-fg}
+format-discharging-prefix-padding-right = ${layout.icon-padding}
+
+label-discharging = -%consumption:0:4% W
+
+; Charging
+format-charging = <label-charging>
+
+format-charging-prefix = ${self.format-discharging-prefix}
+format-charging-prefix-font = ${layout.icon-font}
+format-charging-prefix-foreground = ${color.icon-fg}
+format-charging-prefix-padding-right = ${layout.icon-padding}
+
+label-charging = +%consumption:0:4% W
+
+; Full
+format-full =
+
+
+;  __         __
+; |__) _  _  (_  _ _|__|_. _  _  _
+; |__)(_||   __)(/_ |  | || |(_|_)
+;                             _|
 
 [settings]
+; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+; vim:filetype=dosini
+; kak:filetype=ini
 
-; vim:ft=dosini
