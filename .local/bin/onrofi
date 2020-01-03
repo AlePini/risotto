@@ -20,5 +20,5 @@ case "${selection}" in
     "  reboot")
         systemctl reboot;;
     " lock")
-        lock;;
+        dm-tool lock;;
 esac
