@@ -411,7 +411,10 @@ inherit = generic-format-style
 
 exec = ~/.config/polybar/modules/player.sh
 interval = 3
-tail = true
+
+format = <label>
+
+label = %output:0:35:...%
 
 click-left = playerctl previous &
 click-right = playerctl next &
