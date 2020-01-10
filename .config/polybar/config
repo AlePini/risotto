@@ -389,9 +389,9 @@ type = internal/date
 inherit = generic-format-style
 interval = 1
 
-; Date format is "MM 月 DD 日", with a smaller font size used for
+; Date format is "DD 日MM 月", with a smaller font size used for
 ; the spaces to achieve a tighter spacing using a monospaced font.
-date = %m%{T5} %{T-}%{F#6272a4}月%{F-}%{T5} %{T-}%d%{T5} %{T-}%{F#6272a4}日%{F-}
+date = %d%{T5} %{T-}%{F#6272a4}日%{F-}%{T5} %{T-}%m%{T5} %{T-}%{F#6272a4}月%{F-}
 date-alt = %V%{T5} %{T-}%{F#6272a4}週%{F-}
 
 time = %H:%M
