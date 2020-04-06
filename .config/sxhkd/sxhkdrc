@@ -31,7 +31,7 @@ super + {_, shift +} F2
 
 # File Manager
 super + {_, shift +}F3
-        {pcmanfm, kitty -e lf}
+        {pcmanfm, kitty -e ranger}
 
 # Telegram
 super + F4
