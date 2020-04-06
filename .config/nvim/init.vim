@@ -48,18 +48,40 @@ call plug#begin('~/.config/nvim/plugged')
     " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
+    Plug 'lervag/vimtex'
 
 call plug#end()
+
+" Completition Options
+au BufEnter * call ncm2#enable_for_buffer()
+au User Ncm2Plugin call ncm2#register_source({
+            \ 'name' : 'vimtex',
+            \ 'priority': 1,
+            \ 'subscope_enable': 1,
+            \ 'complete_length': 1,
+            \ 'scope': ['tex'],
+            \ 'matcher': {'name': 'combine',
+            \           'matchers': [
+            \               {'name': 'abbrfuzzy', 'key': 'menu'},
+            \               {'name': 'prefix', 'key': 'word'},
+            \           ]},
+            \ 'mark': 'tex',
+            \ 'word_pattern': '\w+',
+            \ 'complete_pattern': g:vimtex#re#ncm,
+            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+            \ })
+
+set completeopt=noinsert,menuone,noselect
 
 " Options
     set rnu
     set nu
     syntax on
 
-" Set tab width to 4 because 8 it's too fucking long
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
+" Set tab width to 2 because 8 it's too fucking long
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
     set expandtab
 
 " Include some dir for C++
