@@ -21,9 +21,9 @@ super + Escape
 ctrl + alt + {_, shift +} Delete
 	kitty -e {gotop,htop}
 
-# Start Ckb-Next
-super + F1
-	ckb-next -b
+# Spotify
+super + {_, shift +} F1
+	{spotify, kitty -e cmus}
 
 # Browsers
 super + {_, shift +} F2
@@ -37,13 +37,17 @@ super + {_, shift +}F3
 super + F4
 	telegram-desktop
 
-# Spotify
-super + {_, shift +} F6
-	{spotify, kitty -e cmus}
-
 # VS Codium
-super + F9
+super + F6
 	codium
+
+# Audio Control
+super + F11
+  pavucontrol
+
+# Start Ckb-Next
+super + F12
+	ckb-next -b
 
 # Lock
 super + q
