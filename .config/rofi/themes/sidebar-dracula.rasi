@@ -40,7 +40,7 @@
     //
     // Bold, Italic, Underline
     highlight:     bold #ffffff;
-
+    
 }
 #window {
     height: 91%;
@@ -51,6 +51,10 @@
     border: 5px;
     border-color: #44475a;
     text-color: @lightwhite;
+}
+
+#message {
+    padding: 0 0 0 4px;
 }
 
 #mode-switcher {
