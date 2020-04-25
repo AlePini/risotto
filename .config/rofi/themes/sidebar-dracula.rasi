@@ -41,14 +41,15 @@
     // Bold, Italic, Underline
     highlight:     bold #ffffff;
 
-    spacing : 2;
 }
 #window {
-    height:   100%;
-    width: 30em;
+    height: 91%;
+    width: 20em;
     location: west;
     anchor:   west;
-    border:  0px 2px 0px 0px;
+    x-offset: 8px;
+    border: 5px;
+    border-color: #44475a;
     text-color: @lightwhite;
 }
 
@@ -93,7 +94,7 @@
 
 #mainbox {
     expand: true;
-    background-color: #282a36;
+    background-color: rgba(40, 42, 54);
     spacing: 1em;
 }
 #listview {
