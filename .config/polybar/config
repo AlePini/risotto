@@ -52,7 +52,6 @@ module-padding = 2
 bar-format = %{T4}%fill%%indicator%%{F#dc404040}%empty%%{F-}%{T-}
 bar-fill-icon = ﭳ
 
-
 ;  __            __
 ; |__) _  _ _   |__) _  _
 ; |__)(_|_)(/_  |__)(_||
@@ -346,27 +345,27 @@ format-disconnected-prefix-font = ${layout.icon-font}
 format-disconnected-prefix-foreground = ${color.icon-fg}
 format-disconnected-prefix-padding-right = ${layout.icon-padding}
 
-
 [module/wlan]
 inherit = module/network
 interface = ${env:IFACE_WLAN}
 
-format-connected-prefix = 直
+format-connected-prefix = %{A1:networkmanager_dmenu:}直
 label-connected = %essid%
+format-connected-suffix = %{A}
 
-format-disconnected-prefix = 睊
+format-disconnected-prefix = %{A1:networkmanager_dmenu:}睊
 label-disconnected = off-line
-
+format-disconnected-suffix = %{A}
 
 [module/eth]
 inherit = module/network
 interface = ${env:IFACE_ETH}
 
-format-connected-prefix = 
+format-connected-prefix = %{A1:networkmanager_dmenu:} 
 label-connected = %local_ip%
+format-connected-suffix = %{A}
 
 format-disconnected =
-
 
 [module/ping]
 type = custom/script
