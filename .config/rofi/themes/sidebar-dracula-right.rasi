@@ -1,0 +1,14 @@
+/**
+ * User: pini, qball
+ * Copyright: Dave Davenport
+ */
+
+@import "sidebar-dracula"
+
+#window {
+    height: 91%;
+    width: 20em;
+    location: east;
+    anchor:   east;
+    x-offset: -8px;
+   }
