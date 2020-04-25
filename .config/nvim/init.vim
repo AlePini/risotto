@@ -107,3 +107,6 @@ set completeopt=noinsert,menuone,noselect
 
 " Update binds when sxhkdrc is updated.
 	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+
+" Enable Syntax for rofi themes
+  au BufNewFile,BufRead /*.rasi setf css
