@@ -50,6 +50,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ncm2/ncm2-path'
     Plug 'lervag/vimtex'
 
+    " Color scheme Dracula
+    Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 
 " Completition Options
@@ -77,6 +80,8 @@ set completeopt=noinsert,menuone,noselect
     set rnu
     set nu
     syntax on
+    colorscheme dracula
+    set termguicolors
 
 " Set tab width to 2 because 8 it's too fucking long
     set tabstop=2
