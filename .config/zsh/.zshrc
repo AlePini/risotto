@@ -117,5 +117,8 @@ kitty + complete setup zsh | source /dev/stdin
 #alias dualscreen="xrandr --auto --output HDMI1 --mode 1920x1080 --left-of eDP1 && xrandr --auto --output eDP1 --mode 1366x768 --right-of HDMI1"
 alias ssh-unibo="ssh -t -Y alessandro.filippin6@giovanna.cs.unibo.it 'zsh -l'"
 
+# Cabal path
+export PATH=$HOME/.ghcup/bin:$PATH
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
