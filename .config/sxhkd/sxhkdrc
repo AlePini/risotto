@@ -39,7 +39,11 @@ super + F4
 
 # VS Codium
 super + F6
-	codium
+  codium
+
+# Mail
+super + F7
+  mailspring
 
 # Audio Control
 super + F11
