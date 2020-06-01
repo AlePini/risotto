@@ -590,11 +590,11 @@
   typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=0
 
   # Context format when running with privileges: user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n卵%m'
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n 卵%m'
   # Context format when in SSH without privileges: user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n卵%m'
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n 卵%m'
   # Default context format (no privileges, no SSH): user@hostname.
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n卵%m'
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n 卵%m'
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
@@ -757,6 +757,8 @@
   # first match wins.
   #
   # For example, given these settings:
+  #
+  #
   #
   #   typeset -g POWERLEVEL9K_AWS_CLASSES=(
   #     '*prod*'  PROD
