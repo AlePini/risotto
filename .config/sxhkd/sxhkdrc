@@ -27,7 +27,7 @@ super + {_, shift +} F1
 
 # Browsers
 super + {_, shift +} F2
-	{brave, midori}
+	{vivaldi-stable, midori}
 
 # File Manager
 super + {_, shift +}F3
