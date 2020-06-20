@@ -11,7 +11,7 @@
 * ZSH-Theme: [powerline10k](https://github.com/romkatv/powerlevel10k)
 
 ### Rofi
-* Theme: Dracula version of [sidebar](https://github.com/davatorium/rofi/blob/next/themes/sidebar.rasi) --> .config/rofi/themes
+* Theme: Dracula version of [Rofi's sidebar](https://github.com/davatorium/rofi/blob/next/themes/sidebar.rasi) --> [DraculaSidebar](.config/rofi/themes/sidebar-dracula.rasi)
 * Additional Modes:
     * [calc](https://github.com/svenstaro/rofi-calc)
     * [network](https://github.com/firecat53/networkmanager-dmenu)
