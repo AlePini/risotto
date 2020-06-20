@@ -27,4 +27,6 @@
 * rEFInd Theme: Dark version of [rEFInd-minimal](https://github.com/EvanPurkhiser/rEFInd-minimal)
 
 ## Screenshots
-T O D O 
+![Main](https://i.imgur.com/xblcVF9.png)
+![Browser and Telegram](https://i.imgur.com/FhKykeL.png)
+![Spotify](https://i.imgur.com/OxzKHDP.png)
