@@ -16,9 +16,9 @@ echo "This is your selection: $selection"
 
 case "${selection}" in
     "  shutdown")
-        systemctl poweroff -i;;
+        sudo -A shutdown -h now;;
     "  reboot")
-        systemctl reboot;;
+        sudo -A reboot;;
     " lock")
         dm-tool lock;;
 esac
