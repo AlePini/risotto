@@ -27,5 +27,16 @@ export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 
-# Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+# ============
+# Keyring Fix
+# ============
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+# test for an existing bus daemon, just to be safe
+if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
+  # if not found, launch a new one
+  eval `dbus-launch --sh-syntax --exit-with-session`
+  echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
+fi
