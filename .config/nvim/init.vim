@@ -44,6 +44,8 @@ call plug#begin('~/.config/nvim/plugged')
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+    let g:tex_flavor = 'latex'
+
     " NOTE: you need to install completion sources to get completions. Check
     " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
     Plug 'ncm2/ncm2-bufword'
@@ -73,8 +75,6 @@ au User Ncm2Plugin call ncm2#register_source({
             \ 'complete_pattern': g:vimtex#re#ncm,
             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
             \ })
-
-set completeopt=noinsert,menuone,noselect
 
 " Options
     set rnu
