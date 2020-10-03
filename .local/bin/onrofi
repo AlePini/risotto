@@ -16,7 +16,7 @@ echo "This is your selection: $selection"
 
 case "${selection}" in
     "  shutdown")
-        sudo -A shutdown -h now;;
+        sudo -A poweroff;;
     "  reboot")
         sudo -A reboot;;
     " lock")
