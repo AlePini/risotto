@@ -8,7 +8,7 @@ super + {_, shift +} Return
 
 # Rofi
 super + @space
-	rofi -show run -font "BlexMono Nerd Font 13"
+	rofi -show run -modi run,drun -font "BlexMono Nerd Font 13"
 
 super + c
 	rofi -show calc -font "BlexMono Nerd Font 13"
@@ -31,11 +31,15 @@ super + {_, shift +} F2
 
 # File Manager
 super + {_, shift +}F3
-        {pcmanfm, kitty -e ranger}
+        {pcmanfm, kitty -e lf}
 
 # Telegram
 super + F4
 	telegram-desktop
+
+# Notion
+super + F5
+  notion-app
 
 # VS Codium
 super + F6
@@ -222,14 +226,18 @@ XF86MonBrightnessDown
 # Without the sleep scrot crashes
 #
 Print
-    sleep 0.2; \
-    scrot -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'; \
-    notify-send -a Scrot "Got your screenshot !"  "Say Cheese 📷"
+    shotgun $(slop -f "-i %i -g %g") ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png;\
+    notify-send -a ScreenShot "Got your screenshot \!"  "Say Cheese 📷";
+
 
 control + Print
-    sleep 0.2; \
-    scrot $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'; \
-    notify-send -a Scrot "Got your screenshot !"  "Say Cheese 📷"
+    shotgun ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png;\
+    notify-send -a ScreenShot "Got your screenshot \!"  "Say Cheese 📷";
+
+shift + Print
+    shotgun $(slop -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard;\
+    notify-send -a ScreenShot "Copied your screenshot \!"  "Say Cheese 📷";
+
 
 #
 # Power Managment
