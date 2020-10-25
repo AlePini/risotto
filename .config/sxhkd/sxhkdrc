@@ -221,21 +221,19 @@ XF86MonBrightnessUp
 # Decrease Brightness
 XF86MonBrightnessDown
     light -U 5
-#
+
 # Print screen
-# Without the sleep scrot crashes
-#
 Print
-    shotgun $(slop -f "-i %i -g %g") ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png;\
+    screenshot -s ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png && \
     notify-send -a ScreenShot "Got your screenshot \!"  "Say Cheese 📷";
 
 
 control + Print
-    shotgun ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png;\
+    screenshot ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H%M%S).png && \
     notify-send -a ScreenShot "Got your screenshot \!"  "Say Cheese 📷";
 
 shift + Print
-    shotgun $(slop -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard;\
+    screenshot -s -c && \
     notify-send -a ScreenShot "Copied your screenshot \!"  "Say Cheese 📷";
 
 

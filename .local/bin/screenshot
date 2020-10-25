@@ -1,0 +1,26 @@
+#!/bin/sh -e
+
+copy=0
+other_args=()
+output=""
+sel=""
+
+for arg in "$@"
+do
+  case $arg in
+    -s|--selection)
+      sel=$(slop -f "-i %i -g %g")
+    shift
+    ;;
+    -c|--copy)
+      copy=1
+    shift
+    ;;
+    *)
+      output="$1"
+    break
+    ;;
+  esac
+done
+
+[ $copy -eq 1 ] && shotgun $sel - | xclip -t 'image/png' -selection clipboard || shotgun $sel "$output"
