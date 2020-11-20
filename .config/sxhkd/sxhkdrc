@@ -47,7 +47,7 @@ super + F6
 
 # Mail
 super + F7
-  mailspring
+  alacritty -e neomutt
 
 # Audio Control
 super + F11
