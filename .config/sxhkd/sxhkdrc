@@ -184,15 +184,15 @@ super + {Left,Down,Up,Right}
 
 # Volume Up
 XF86AudioRaiseVolume
-    amixer -q set Master 5%+ unmute
+    pamixer -u -i 5
 
 # Volume Down
 XF86AudioLowerVolume
-    amixer -q set Master 5%- unmute
+    pamixer -u -d 5
 
 # Mute Volume
 XF86AudioMute
-    amixer -q set Master toggle
+    pamixer -t
 
 # Stop
 XF86AudioStop
