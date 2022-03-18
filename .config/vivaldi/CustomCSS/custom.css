@@ -1,0 +1,61 @@
+#browser.linux .window-buttongroup {
+    right: 0px !important;
+    top: 0px !important;
+}
+#browser .window-buttongroup {
+    height: 14px !important;
+    margin-top: 14px !important;
+    margin-right: 10px !important;
+}
+.maximized#browser .window-buttongroup {
+    height: 14px !important;
+    margin-top: 8px !important;
+    margin-right: 10px !important;
+}
+
+#browser .window-buttongroup button {
+    height:14px !important;
+    width: 14px !important;
+    margin-left: 10px !important;
+
+ }
+#browser.linux .window-buttongroup button.window-minimize svg path,
+#browser.linux .window-buttongroup button.window-maximize svg path,
+#browser.linux .window-buttongroup button.window-restore svg path,
+#browser.linux .window-buttongroup button.window-close svg path {
+    display: none;
+}
+
+#browser.linux .window-buttongroup button.window-minimize,
+#browser.linux .window-buttongroup button.window-restore,
+#browser.linux .window-buttongroup button.window-maximize,
+#browser.linux .window-buttongroup button.window-close {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABEUlEQVQokZWSTUrDYBRF73v52jUUB4IIdh3FYV2ClQRx3o7aYWY6M3MJHxi7g3YmZB2WWkFUsobm5zqIgbSoTc74Hd7lcoUk6nie18sy54KQMwAQcGVMvrDWJvU7qUTf93Wz+ZyQvCXQ2TkCUqjOnh4f7vkjCEn4vq/r9cczBAP8BxHP5+E5SSoAvL59jQ9K5evBaHQ9BgBxXbeXZc77fry/XaTG5MdaFtFMKtOis811qFV7bRBqX9tKFSrgqq1EKV7UmHwhQNpUEiDtOsVSrbUJVGeNRcHUWpsoAJyeHAUg4sMZEUdRGAC1yYmIXF7dTFAUd79NTgTTKAqDncnV8Tyvt811KNQ+UBbRdYrl/si/AfU0fb9MZ2MlAAAAAElFTkSuQmCC')
+}
+
+#browser.linux .window-buttongroup button {
+    background-color: transparent !important;
+    transition: all 0.1s ease;
+}
+#browser.linux .window-buttongroup button:hover {
+    background-color: transparent !important;
+}
+
+/*The :window-inactive selector only works on text and scroll bar selection, unfortunately*/
+/*
+#browser.linux .window-buttongroup:window-inactive button {
+    background-color: transparent !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEYSURBVCiRldJBTsJAFMbxb16aMpO0dEF6GgXttoFTEF0QV3AKFxqXEK5Bu60YNV5lVqXMZjq0AxuaGBXT/tfvl2/zGL612WyGjuMsOOcjIvKttXut9dvhcHiaTCbvzR0DgCzLHGPMMgiCqed5+JlSCnmer4UQsyiKKgcAjDHLMAynruv+AgDg+z5c172TUgLAPUuSZDQYDLZ/LVxYvCYiWrQBzSJjbE6c82ErcU4IcUtE1O+CiKhP1tp9F1TXdUFlWW67IK11RtbaR6VUK6CUwvF4fKE4jr+KoliXZfkvMMZgt9ut4jj+IADo9XozKeX60qJSClLKFef8ATi/UVOapleMsbkQ4oaIAmttobV+rarqeTwefzZ3J6mBe8GCnGA1AAAAAElFTkSuQmCC);
+}
+*/
+
+#browser.linux .window-buttongroup button.window-minimize:hover {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA/0lEQVQokZWSPU4CYRRFz335GkRKMwXGKf1ZBGwDWMYIq0BYhrAMI3sgWmIgkViZgMRk/J4No4Qgwq3vybnFlbtTZM5duZRbRoxNhxRAMMFssAqxn9BeFl0V4CLv1Rzu3amyI+7MzGKzEjqjH3CR92rR9QCuXdAmL8V6JXRGevVu+STX81+m7UjMPoJfWim37FBoPblayi0zYmweCv3SsREcUgHz8QtvT9O9/bOrc5KbC0CpHW1bR++f3THS9ZFbx4bZ4HidDW0VYl9idjAjpqsQ+5bQXgpaIP8fwyG2EtpLAzgNt4/SV32fWWJavAY2vgobJ/fYAKVryQTZcPvk3yTfcZ1BNTxOAAAAAElFTkSuQmCC');
+}
+#browser.linux .window-buttongroup button.window-restore:hover,
+#browser.linux .window-buttongroup button.window-maximize:hover {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABiElEQVQokZWSsU5UURCGvzl7zjUrNhaabdjYq5HGkvAAUEghhQ8gFpa4BZh4iS6JWTuMD2GhW0BhbEx4AZeE2CIG47YEWbPncH+Lze7eC4mJU07mm/nnz2+SKNcKm41hHC4Zdg9AqJeFbOc9L36V52wM5uRuP6VWIXtpyFe2yRJOG13f7ogRYJLIyV0vxi9g8/yztNcNWwtCo829lNbKUPp0wvnBYCrrRiB7dB1qNr+c1tfwdOyh8kaM6QcleTotGDw9qsD1d038/RkkUpaFWTeMw6UxlD6foH7Crjnqb5vUbtenKv8Uo+uGjzEturF7AMVx5Pfjwyp8pwRPf51zl1o/I2erh6gfR/B2k9rdy7AT6l1sFseRs9XvE/jqdhN360ppwr66LGQ7whKANXwVfnKE+hFmHG42m5gegt81SSyn5y3EawTn3wZwWkx33/SVa2ZqffDtzn8GwPa64dWCkCaRM8wepI1niDZQiZxEck7rH/3Wm0rkyrXCZiPGtAiaGxsRgt+9GPK/Hf7DOGoqmGMAAAAASUVORK5CYII=');
+}
+#browser.linux .window-buttongroup button.window-close:hover {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABf0lEQVQokX2SzUoCURzFf/9Ln5BlrQTHIspq0SP0obQs2jn1GNWmlu5qE/kaTtvcBYbPEFoqBJnQLivBTJh/ixltNOksL+fce865R1SVPth2BNU9RFYAUC0jcoPjvAZp0hOm04ZS6RjVc2C0/zY6GHNGNnuFL/CE6bShWLwFkvyPPNfXO6iqAeDh4QhIuqp8fH3/YX+02riesSS2feS9mEpFgGdgtNFqk7t/IhG3iIanAHh++6RQrbO/vsj05LhnG+YNqnvdTOHJcTaWotxVXqg3mtR80fZytCvC5+6O9NrzsTAXAqLkyzUUSMQtYrOhQferZlgDRkARBDAiQ1syqJaDB7VGk0K1TmLFYnPZ6tkewKNB5MYPzHurTaHywlbcIhaeYmEu1MscaLsD5Lx/PDw8wXUvXVU+v76Z+S0CgEarzfTEmGdb5IRs9srLuLaWAfJG5I8IvLb9rHkcJwPByYkIBwfHuO4FwyYncorjZPonF4RtR4BdYLVbBJAbHPkPlj2j8YDYKcEAAAAASUVORK5CYII=') !important;
+} 
