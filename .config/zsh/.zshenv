@@ -1,4 +1,5 @@
 # Environmental variables are set here.
+
 # ==================
 # Language settings:
 # ==================
@@ -16,9 +17,13 @@ EDITOR=/usr/bin/nvim
 PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 PATH="$PATH:$HOME/.ghcup/bin"
 
+# ===========
+# ZSH configs
+# ===========
+HISTFILE="$ZDOTDIR/.zsh_history"
+
 # ============
 # ~/ Clean-up:
 # ============
 GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-HISTFILE="$ZDOTDIR/.zsh_history"
 PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
