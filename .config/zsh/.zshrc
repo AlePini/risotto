@@ -12,8 +12,12 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 znap prompt romkatv/powerlevel10k
 
 # ===============
-# OhMyZSH Plugins
+# OhMyZSH Imports
 # ===============
+znap source ohmyzsh/ohmyzsh lib/completion
+znap source ohmyzsh/ohmyzsh lib/git
+znap source ohmyzsh/ohmyzsh lib/history
+znap source ohmyzsh/ohmyzsh lib/key-bindings
 znap source ohmyzsh/ohmyzsh plugins/git
 znap source ohmyzsh/ohmyzsh plugins/sudo
 
