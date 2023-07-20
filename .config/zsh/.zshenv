@@ -3,8 +3,9 @@
 # ==================
 # Language settings:
 # ==================
-LANG=it_IT.UTF-8
 LC_ALL=it_IT.UTF-8
+LANG=it_IT.UTF-8
+LANGUAGE=it_IT.UTF-8
 
 # ================
 # Default programs

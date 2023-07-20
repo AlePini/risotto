@@ -37,8 +37,8 @@ znap source zsh-users/zsh-autosuggestions
 #alias dualscreen="xrandr --auto --output HDMI1 --mode 1920x1080 --left-of eDP1 && xrandr --auto --output eDP1 --mode 1366x768 --right-of HDMI1"
 alias cat="echo '!! USE bat'; bat"
 alias exa="exa -g --icons --git"
-alias exal="exa -l -a"
-alias exall="exa -l"
+alias exal="exa -l"
+alias exall="exa -l -a"
 alias exalt="exa -1 --icons --git-ignore"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
