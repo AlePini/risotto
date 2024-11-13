@@ -37,6 +37,7 @@ znap source zdharma-continuum/fast-syntax-highlighting
 # Autocompletition
 # ================
 znap source zsh-users/zsh-autosuggestions
+znap source sunlei/zsh-ssh
 znap source unixorn/fzf-zsh-plugin
 znap source Aloxaf/fzf-tab
 
