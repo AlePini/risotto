@@ -1,4 +1,4 @@
-import = ["/home/pini/.config/alacritty/dracula.toml"]
+general.import = ["/home/pini/.config/alacritty/dracula.toml"]
 
 [cursor.style]
 blinking = "On"
