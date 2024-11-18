@@ -38,7 +38,7 @@ znap source zdharma-continuum/fast-syntax-highlighting
 # ================
 znap source zsh-users/zsh-autosuggestions
 znap source sunlei/zsh-ssh
-znap source unixorn/fzf-zsh-plugin
+# znap source unixorn/fzf-zsh-plugin
 znap source Aloxaf/fzf-tab
 
 # ============
@@ -52,6 +52,9 @@ alias exalt="exa -1 --icons --git-ignore"
 
 # Enable Zoxide for ZSH
 eval "$(zoxide init zsh)"
+
+# Config FZF key-bindings and fuzzy completion
+source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
