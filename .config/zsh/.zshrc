@@ -45,10 +45,10 @@ znap source Aloxaf/fzf-tab
 # Custom alias
 # ============
 alias cat="echo '!! USE bat'; bat"
-alias exa="exa -g --icons --git"
-alias exal="exa -l"
-alias exall="exa -l -a"
-alias exalt="exa -1 --icons --git-ignore"
+alias eza="eza -g --icons --git"
+alias ezal="eza -l"
+alias ezall="eza -l -a"
+alias ezalt="eza -1 --icons --git-ignore"
 
 # Enable Zoxide for ZSH
 eval "$(zoxide init zsh)"
