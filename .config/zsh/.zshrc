@@ -54,7 +54,12 @@ alias ezalt="eza -1 --icons --git-ignore"
 eval "$(zoxide init zsh)"
 
 # Config FZF key-bindings and fuzzy completion
-source <(fzf --zsh)
+# source <(fzf --zsh)
+source /usr/share/fzf/shell/key-bindings.zsh
+
+# Don't ask why. But fzf doesn't like env being applied in .zshenv
+export FZF_DEFAULT_OPTS="--height 40% --tmux 80% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
+export FZF_DEFAULT_COMMAND="fd -u"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
