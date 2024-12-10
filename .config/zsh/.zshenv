@@ -16,6 +16,7 @@ EDITOR=/usr/bin/nvim
 # Additions to $PATH
 # ==================
 PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 PATH="$PATH:$HOME/.ghcup/bin"
 
 # ===========
