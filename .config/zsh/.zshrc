@@ -61,5 +61,13 @@ source /usr/share/fzf/shell/key-bindings.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
 export FZF_DEFAULT_COMMAND="fd -u"
 
+# https://github.com/microsoft/WSL/issues/11261#issuecomment-2334775209
+# Under WSL, we KINDA have Wayland, but not really, and that blows up Neovim. Ungh. :)
+# Add an alias so if we actually WANT the pseudo wayland, we can haz.
+if [[ $(uname -r | grep "microsoft") ]] then
+        unset WAYLAND_DISPLAY
+        alias wway='export WAYLAND_DISPLAY=wayland-0'
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
