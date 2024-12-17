@@ -49,6 +49,7 @@ alias eza="eza -g --icons --git"
 alias ezal="eza -l"
 alias ezall="eza -l -a"
 alias ezalt="eza -1 --icons --git-ignore"
+alias k="kubectl"
 
 # Enable Zoxide for ZSH
 eval "$(zoxide init zsh)"
@@ -58,7 +59,7 @@ eval "$(zoxide init zsh)"
 source /usr/share/fzf/shell/key-bindings.zsh
 
 # Don't ask why. But fzf doesn't like env being applied in .zshenv
-export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
+export FZF_DEFAULT_OPTS="--height 75% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
 export FZF_DEFAULT_COMMAND="fd -u"
 
 # https://github.com/microsoft/WSL/issues/11261#issuecomment-2334775209
