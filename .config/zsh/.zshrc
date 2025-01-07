@@ -63,6 +63,19 @@ source <(flux completion zsh)
 export FZF_DEFAULT_OPTS="--height 75% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
 export FZF_DEFAULT_COMMAND="fd -u"
 
+# Copied from tmux-yank plugin
+if type "clip.exe" &> /dev/null; then # WSL clipboard command
+  export FZF_CLIP_CMD="clip.exe"
+elif type "wl-copy" &> /dev/null; then # wl-clipboard: Wayland clipboard utilities
+  export FZF_CLIP_CMD="wl-copy"
+fi
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | $FZF_CLIP_CMD)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'
+  --preview-window=hidden"
+
 # https://github.com/microsoft/WSL/issues/11261#issuecomment-2334775209
 # Under WSL, we KINDA have Wayland, but not really, and that blows up Neovim. Ungh. :)
 # Add an alias so if we actually WANT the pseudo wayland, we can haz.
