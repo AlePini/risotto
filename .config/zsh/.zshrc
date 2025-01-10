@@ -57,7 +57,9 @@ eval "$(zoxide init zsh)"
 # Config FZF key-bindings and fuzzy completion
 # source <(fzf --zsh)
 source /usr/share/fzf/shell/key-bindings.zsh
-source <(flux completion zsh)
+if type "flux" &> /dev/null; then
+  source <(flux completion zsh)
+fi
 
 # Don't ask why. But fzf doesn't like env being applied in .zshenv
 export FZF_DEFAULT_OPTS="--height 75% --layout reverse --border --preview 'test -d {} && eza -g --icons --git -l -a -T -L 3 --color always {}/ || bat --theme='Dracula' --style=numbers,changes,grid --pager never  --color=always {} 2>/dev/null'"
