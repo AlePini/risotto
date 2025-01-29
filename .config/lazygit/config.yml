@@ -1,2 +1,3 @@
 confirmOnQuit: true
-
+gui:
+  nerdFontsVersion: "3"
