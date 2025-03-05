@@ -1,0 +1,18 @@
+[core]
+  autocrlf = input
+	editor = nvim
+[init]
+  defaultBranch = main
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+  path = "/home/pini/.config/git/github.inc"
+
+[maintenance]
+	repo = /home/pini/.config/zsh/plugins/znap
+	repo = /home/pini/.config/zsh/plugins/Aloxaf/fzf-tab
+	repo = /home/pini/.config/zsh/plugins/ohmyzsh/ohmyzsh
+	repo = /home/pini/.config/zsh/plugins/romkatv/powerlevel10k
+	repo = /home/pini/.config/zsh/plugins/sunlei/zsh-ssh
+	repo = /home/pini/.config/zsh/plugins/unixorn/fzf-zsh-plugin
+	repo = /home/pini/.config/zsh/plugins/zdharma-continuum/fast-syntax-highlighting
+	repo = /home/pini/.config/zsh/plugins/zsh-users/zsh-autosuggestions
