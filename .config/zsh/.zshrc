@@ -44,7 +44,7 @@ znap source Aloxaf/fzf-tab
 # ============
 # Custom alias
 # ============
-alias cat="echo '!! USE bat'; bat"
+alias cat="bat"
 alias eza="eza -g --icons --git"
 alias ezal="eza -l"
 alias ezall="eza -l -a"
