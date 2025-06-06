@@ -50,7 +50,12 @@ alias ezal="eza -l"
 alias ezall="eza -l -a"
 alias ezalt="eza -1 --icons --git-ignore"
 alias k="kubectl"
-alias zola="flatpak run org.getzola.zola"
+
+# My fedora install has zola installed with flatpak, but on termux is installed from main repos.
+# So, when zola is not found in $PATH, try to alias with flatpak
+if ! type "zola" &> /dev/null; then
+  alias zola="flatpak run org.getzola.zola"
+fi
 
 # Enable Zoxide for ZSH
 eval "$(zoxide init zsh)"
