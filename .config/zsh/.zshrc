@@ -57,13 +57,13 @@ if ! type "zola" &> /dev/null; then
   alias zola="flatpak run org.getzola.zola"
 fi
 
-# Enable Zoxide for ZSH
-eval "$(zoxide init zsh)"
-
 # Enable Zola completion for ZSH
-if type "zola" &> /dev/null; then
+if zola -V &> /dev/null; then
   eval "$(zola completion zsh)"
 fi
+
+# Enable Zoxide for ZSH
+eval "$(zoxide init zsh)"
 
 # Config FZF key-bindings and fuzzy completion
 # source <(fzf --zsh)
