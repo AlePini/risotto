@@ -50,9 +50,15 @@ alias ezal="eza -l"
 alias ezall="eza -l -a"
 alias ezalt="eza -1 --icons --git-ignore"
 alias k="kubectl"
+alias zola="flatpak run org.getzola.zola"
 
 # Enable Zoxide for ZSH
 eval "$(zoxide init zsh)"
+
+# Enable Zola completion for ZSH
+if type "zola" &> /dev/null; then
+  eval "$(zola completion zsh)"
+fi
 
 # Config FZF key-bindings and fuzzy completion
 # source <(fzf --zsh)
