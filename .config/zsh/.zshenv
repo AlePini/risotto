@@ -18,6 +18,7 @@ EDITOR=/usr/bin/nvim
 PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 PATH="$PATH:$HOME/.ghcup/bin"
+PATH="$PATH:$HOME/.cargo/bin"
 
 # ===========
 # ZSH configs
