@@ -4,7 +4,7 @@
 [init]
   defaultBranch = main
 
-[includeIf "hasconfig:remote.*.url:git@git.disroot.org:*/**"]
+[includeIf "hasconfig:remote.*.url:ssh://git@git.disroot.org/*/**"]
   path = "/home/pini/.config/git/disroot.inc"
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
   path = "/home/pini/.config/git/github.inc"
