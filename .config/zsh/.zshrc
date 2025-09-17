@@ -28,6 +28,9 @@ znap source ohmyzsh/ohmyzsh lib/key-bindings
 znap source ohmyzsh/ohmyzsh plugins/git
 znap source ohmyzsh/ohmyzsh plugins/sudo
 
+ZSH_TMUX_AUTOSTART=true
+znap source ohmyzsh/ohmyzsh plugins/tmux
+
 # ===================
 # Syntax Highlighting
 # ===================
